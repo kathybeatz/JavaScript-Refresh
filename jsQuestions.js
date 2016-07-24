@@ -48,3 +48,26 @@ function multiply(a) {
 console.log(multiply(5)(6)); 
 
 //-----------------------------
+
+//4) When would you use the bind function?
+
+/*
+  A good use of the bind function is when you have a particular function that you want to call with a specific 'this' value. You can then use 'bind' to pass a specific object to a function that uses a 'this' reference.
+*/
+
+function fullName() {
+  return "Hello, this is " + this.first + " " + this.last;
+}
+
+console.log(fullName()); // Hello this is undefined undefined
+
+//create a person object and pass its value to the fullName function
+var person = {
+  first: "Foo",
+  last: "Bar"
+};
+
+console.log(fullName.bind(person)()); // Hello this is Foo Bar
+
+
+
