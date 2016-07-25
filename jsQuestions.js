@@ -70,6 +70,7 @@ var person = {
 console.log(fullName.bind(person)()); // Hello this is Foo Bar
 
 
+//-----------------------------
 
 // 5) What does "use strict" do?
 
@@ -88,5 +89,38 @@ function doSomething(val) {
   "use strict";
   var x = val + 10; // adding var will fix the error
 };
+
+//-----------------------------
+
+// 6) What is the difference between = , == and === ?
+
+/*
+  =   -  assignment operator
+
+          ex:
+            var x = 1; //setting variable x to the value of 1
+
+  ==  -  performs implcit type conversion to check if values are equal to each other.
+         it will convert the values to true or false boolean values and then compare them.
+
+        ex (bad implicit type conversions):
+          "1" == 1           //true
+          true == 1          //true
+          [] == false        //true
+          "" == false        //true
+          undefined == null  //true
+
+  ===  -  has no type conversions, just checks both values and compares
+
+        ex:
+          "1" == 1           //false
+          true == 1          //false
+          [] == false        //false
+          "" == false        //false
+          undefined == null  //false
+*/
+
+//-----------------------------
+
 
 
