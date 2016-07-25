@@ -173,8 +173,28 @@ modifyArray(arr, function() {
 //This will return false because of 'floating point' errors in internally representing certain numbers. 0.1 + 0.2 does not nicely come out to 0.3 because the result is actually 0.30000000000000004 because the computer cannot internally represent the correct number.
 //One solution to get around this problem is to round the results when doing arithmetic with decimals.
 
+//-----------------------------
 
+//10) How would you create a private variable in JavaScript
 
+//To create a private variable in JavaScript that cannot be changed you need to create it as a local variable within a function. Even if the function is executed the variable cannot be accessed outside of the function:
 
+//ex:
+function func() {
+  var priv = "secret code";
+}
+console.log(priv); //throws error
+
+//To access the variable, a helper function would need to be created that returns the private variable.
+
+function func() {
+  var priv = "secret code";
+  return function() {
+    return priv;
+  };
+};
+
+var getPriv = func();
+console.log(getPriv); //secret code
 
 
