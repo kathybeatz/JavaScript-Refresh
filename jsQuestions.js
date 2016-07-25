@@ -122,5 +122,28 @@ function doSomething(val) {
 
 //-----------------------------
 
+// 7) How would you add your own method to the Array object so the following code would work?
+
+var arr = [1, 2, 3, 4, 5];
+var avg = arr.average();
+console.log(avg);
+
+//Javascript is not class based, but it is a 'prototype-based' lanugage. This means that each object is linked to another object, its prototype, and it inherits its methods. We need to add a method to the global Array object, and we will do this by modifying the Array prototype.
+
+Array.prototype.average = function(){
+  //calculate sum
+  var sum = this.reduce(function(prev, cur){
+    return prev + cur;
+  });
+  return sum / this.length;
+};
+
+var arr = [1, 2, 3, 4, 5];
+var avg = arr.average();
+console.log(avg); //3
+
+//Now every array that is created wil have the average method inherited along with every other Array method. But, you need to be careful with modifying the prototype of an object, because you can mistakenly overwrite a common method.
+
+
 
 
